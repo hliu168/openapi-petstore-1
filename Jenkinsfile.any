@@ -1,0 +1,14 @@
+pipeline {
+  agent any
+  stages {
+        
+      stage("Generate SBOM") {
+          steps {   
+             withMaven(maven: '3.8.5') {
+                sh 'mvn clean install'
+                sbomStudio filePath: '', generateSbom: true, installation: '3.8.5', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: '', sbomComponentNamespace: '', sbomComponentVersion: '', subType: 'application', supplierId: 'Cybeats'
+             }
+          }
+      }
+  }
+}
