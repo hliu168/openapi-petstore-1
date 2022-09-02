@@ -4,10 +4,16 @@ pipeline {
         
       stage("Generate SBOM") {
           steps {   
-             withMaven(maven: '3.8.5') {
                 sh 'mvn clean install'
-                sbomStudio filePath: '', generateSbom: true, installation: '3.8.5', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: '', sbomComponentNamespace: '', sbomComponentVersion: '', subType: 'application', supplierId: 'Cybeats'
-             }
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.0', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.1', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.2', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.3', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.4', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.5', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.6', subType: 'application', supplierId: 'Cybeats'
+                sbomStudio filePath: '${WORKSPACE}/target/openapi-cyclonedx.json', manufacturerId: 'Cybeats', pkgType: 'maven', sbomComponentName: 'openapi-test', sbomComponentNamespace: 'elastic', sbomComponentVersion: '${APP_BASE_VER}.${BUILD_NUMBER}.7', subType: 'application', supplierId: 'Cybeats'
+                
           }
       }
   }
